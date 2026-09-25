@@ -1,0 +1,254 @@
+{
+  "version": "8",
+  "dialect": "postgres",
+  "id": "29c37db1-fee7-4e5e-b27a-0a318d720172",
+  "prevIds": [
+    "f5640a6d-1147-403b-b70a-fb993c0e5840"
+  ],
+  "ddl": [
+    {
+      "values": [
+        "active",
+        "pending",
+        "rejected",
+        "suspended"
+      ],
+      "name": "user_status_enum",
+      "entityType": "enums",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "user_roles",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "users",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "user_roles_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "user_roles"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "name",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "user_roles"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "users_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "name",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "email",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "password_hash",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "role_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "user_status_enum",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'pending'",
+      "generated": null,
+      "identity": null,
+      "name": "status",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "role_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "user_roles",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "name": "users_role_id_user_roles_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "user_roles_pkey",
+      "schema": "public",
+      "table": "user_roles",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "users_pkey",
+      "schema": "public",
+      "table": "users",
+      "entityType": "pks"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "name"
+      ],
+      "nullsNotDistinct": false,
+      "name": "user_roles_name_key",
+      "schema": "public",
+      "table": "user_roles",
+      "entityType": "uniques"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "email"
+      ],
+      "nullsNotDistinct": false,
+      "name": "users_email_key",
+      "schema": "public",
+      "table": "users",
+      "entityType": "uniques"
+    }
+  ],
+  "renames": []
+}

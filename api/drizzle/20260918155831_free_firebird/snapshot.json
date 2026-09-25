@@ -1,0 +1,1680 @@
+{
+  "version": "8",
+  "dialect": "postgres",
+  "id": "62ff2d7e-3e88-491a-9809-183a53b4c198",
+  "prevIds": [
+    "b2b67a8b-5c72-44b2-b87e-7f9428598eaa"
+  ],
+  "ddl": [
+    {
+      "values": [
+        "approved",
+        "pending",
+        "rejected"
+      ],
+      "name": "trainer_approval_status_enum",
+      "entityType": "enums",
+      "schema": "public"
+    },
+    {
+      "values": [
+        "active",
+        "pending",
+        "rejected",
+        "suspended"
+      ],
+      "name": "user_status_enum",
+      "entityType": "enums",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "competencies",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "departments",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "organizations",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "roles",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "skills",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "trainee_experiences",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "trainee_profiles",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "trainee_qualifications",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "trainee_skills",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "trainer",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "trainer_approval",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "trainer_competencies",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "isRlsEnabled": false,
+      "name": "users",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "competencies_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "competencies"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "name",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "competencies"
+    },
+    {
+      "type": "varchar(300)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "description",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "competencies"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "competencies"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "departments_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "departments"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "name",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "departments"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "organization_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "departments"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "departments"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "departments"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "departments"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "organizations_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "organizations"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "name",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "organizations"
+    },
+    {
+      "type": "varchar(300)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "description",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "organizations"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "email",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "organizations"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "organizations"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "organizations"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "organizations"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "roles_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "roles"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "name",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "roles"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "skills_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "skills"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "name",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "skills"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "skills"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "trainee_experiences_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_experiences"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "trainee_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_experiences"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "organization",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_experiences"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "jobTitle",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_experiences"
+    },
+    {
+      "type": "varchar(300)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "description",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_experiences"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "start_date",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_experiences"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "end_date",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_experiences"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_experiences"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_experiences"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "trainee_profiles_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "user_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "bio",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "type": "varchar(15)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "phone",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "location",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "profile_photo_url",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "linkdein_url",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "github_url",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "trainee_qualifications_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_qualifications"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "trainee_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_qualifications"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "degree",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_qualifications"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "institution",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_qualifications"
+    },
+    {
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "start_year",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_qualifications"
+    },
+    {
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "end_year",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_qualifications"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_qualifications"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_qualifications"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "trainee_skills_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_skills"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "trainee_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_skills"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "skill_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_skills"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_skills"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainee_skills"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "trainer_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "user_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer"
+    },
+    {
+      "type": "varchar(300)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "bio",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer"
+    },
+    {
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "experience_years",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "linkdein_url",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "github_url",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "trainer_approval_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_approval"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "trainer_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_approval"
+    },
+    {
+      "type": "varchar(300)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "application_note",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_approval"
+    },
+    {
+      "type": "trainer_approval_status_enum",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'pending'",
+      "generated": null,
+      "identity": null,
+      "name": "status",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_approval"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "reviewed_by",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_approval"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "reviewed_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_approval"
+    },
+    {
+      "type": "varchar(300)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "rejection_reason",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_approval"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_approval"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "trainer_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_competencies"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "competency_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_competencies"
+    },
+    {
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "years_of_experience",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_competencies"
+    },
+    {
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "name": "is_verified",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "trainer_competencies"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "users_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "name",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "email",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "password_hash",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "role_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "user_status_enum",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'pending'",
+      "generated": null,
+      "identity": null,
+      "name": "status",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "organization_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "organizations",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "name": "departments_organization_id_organizations_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "departments"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "trainee_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "trainee_profiles",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "name": "trainee_experiences_trainee_id_trainee_profiles_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "trainee_experiences"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "user_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "users",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "name": "trainee_profiles_user_id_users_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "trainee_profiles"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "trainee_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "trainee_profiles",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "name": "trainee_qualifications_trainee_id_trainee_profiles_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "trainee_qualifications"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "trainee_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "trainee_profiles",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "name": "trainee_skills_trainee_id_trainee_profiles_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "trainee_skills"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "skill_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "skills",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "name": "trainee_skills_skill_id_skills_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "trainee_skills"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "user_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "users",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "name": "trainer_user_id_users_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "trainer"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "trainer_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "trainer",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "name": "trainer_approval_trainer_id_trainer_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "trainer_approval"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "reviewed_by"
+      ],
+      "schemaTo": "public",
+      "tableTo": "users",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "name": "trainer_approval_reviewed_by_users_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "trainer_approval"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "trainer_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "trainer",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "name": "trainer_competencies_trainer_id_trainer_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "trainer_competencies"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "competency_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "competencies",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "name": "trainer_competencies_competency_id_competencies_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "trainer_competencies"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "role_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "roles",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "name": "users_role_id_user_roles_id_fkey",
+      "entityType": "fks",
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "competencies_pkey",
+      "schema": "public",
+      "table": "competencies",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "departments_pkey",
+      "schema": "public",
+      "table": "departments",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "organizations_pkey",
+      "schema": "public",
+      "table": "organizations",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "user_roles_pkey",
+      "schema": "public",
+      "table": "roles",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "skills_pkey",
+      "schema": "public",
+      "table": "skills",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "trainee_experiences_pkey",
+      "schema": "public",
+      "table": "trainee_experiences",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "trainee_profiles_pkey",
+      "schema": "public",
+      "table": "trainee_profiles",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "trainee_qualifications_pkey",
+      "schema": "public",
+      "table": "trainee_qualifications",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "trainee_skills_pkey",
+      "schema": "public",
+      "table": "trainee_skills",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "trainer_pkey",
+      "schema": "public",
+      "table": "trainer",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "trainer_approval_pkey",
+      "schema": "public",
+      "table": "trainer_approval",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "users_pkey",
+      "schema": "public",
+      "table": "users",
+      "entityType": "pks"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "email"
+      ],
+      "nullsNotDistinct": false,
+      "name": "organizations_email_key",
+      "schema": "public",
+      "table": "organizations",
+      "entityType": "uniques"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "name"
+      ],
+      "nullsNotDistinct": false,
+      "name": "user_roles_name_key",
+      "schema": "public",
+      "table": "roles",
+      "entityType": "uniques"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "email"
+      ],
+      "nullsNotDistinct": false,
+      "name": "users_email_key",
+      "schema": "public",
+      "table": "users",
+      "entityType": "uniques"
+    }
+  ],
+  "renames": []
+}

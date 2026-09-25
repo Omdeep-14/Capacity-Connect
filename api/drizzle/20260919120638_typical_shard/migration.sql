@@ -1,0 +1,2 @@
+CREATE UNIQUE INDEX "trainer_active_user_id_unique" ON "trainer" ("user_id") WHERE "deleted_at" IS NULL;--> statement-breakpoint
+CREATE UNIQUE INDEX "trainer_competency_unique" ON "trainer_competencies" ("trainer_id","competency_id");
